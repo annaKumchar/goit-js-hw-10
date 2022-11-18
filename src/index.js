@@ -11,6 +11,7 @@ const DEBOUNCE_DELAY = 300;
 const countryInput = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
+const test = document.querySelector('.country-info__list');
 
 const onClearMarkup = () => {
   countryList.innerHTML = '';
@@ -24,19 +25,12 @@ countryInput.addEventListener(
 
 function onCountryInput() {
   const name = countryInput.value.trim();
-  if (name === '') {
-    return onClearMarkup();
-  }
 
   fetchCountries(name)
     .then(countries => {
       onClearMarkup();
 
       if (countries.length === 1) {
-        countryList.insertAdjacentHTML(
-          'beforeend',
-          onRenderListMarkup(countries)
-        );
         countryInfo.insertAdjacentHTML(
           'beforeend',
           onRenderInfoMarkup(countries)

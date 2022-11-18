@@ -1,4 +1,11 @@
-<ul class='country-info__list'>
+<div class='country-info__container'>
+  <img
+    class='country-info__flag'
+    src='{{flags.svg}}'
+    alt='Flag of {{name.official}}'
+    width='50px'
+  />
+  <h2 class='country-info__name'>{{name.official}}</h2>
   <li class='country-info__item'><p class='country-info__text'><b>Capital:
       </b>{{capital}}</p></li>
   <li class='country-info__item'><p class='country-info__text'><b>Population:
@@ -6,4 +13,4 @@
   <li class='country-info__item'><p class='country-info__text'><b>Languages:
       </b>{{#each languages}}{{#if @index}}, {{/if}}<span
         >{{this}}</span>{{/each}}</p></li>
-</ul>
+</div>
